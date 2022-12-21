@@ -3,5 +3,12 @@
 # ------------------------------------------------------
 
 type Query {
+  """This returns a plain test text"""
   example: String!
+
+  """Generates a random number"""
+  getRandomNumber: Float!
+
+  """Generates a random number from 0 to N"""
+  getRandomNumberFromZeroTo(to: Int!): Int!
 }
