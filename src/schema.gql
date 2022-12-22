@@ -18,4 +18,5 @@ type Query {
   """Generates a random number from 0 to N"""
   getRandomNumberFromZeroTo(to: Int!): Int!
   todos: [Todo!]!
+  todo(id: Int!): Todo!
 }
