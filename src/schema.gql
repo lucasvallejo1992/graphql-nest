@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Todo {
+  id: Int!
+  description: String!
+  done: Boolean!
+}
+
 type Query {
   """This returns a plain test text"""
   example: String!
@@ -11,4 +17,5 @@ type Query {
 
   """Generates a random number from 0 to N"""
   getRandomNumberFromZeroTo(to: Int!): Int!
+  todos: [Todo!]!
 }
