@@ -4,7 +4,25 @@ import { Todo } from './entity/todo.entity';
 
 @Injectable()
 export class TodoService {
-  private todos: Todo[] = [{ id: 1, description: 'Test todo', done: false }];
+  private todos: Todo[] = [
+    { id: 1, description: 'Test todo 1', done: false },
+    { id: 2, description: 'Test todo 2', done: true },
+    { id: 3, description: 'Test todo 3', done: false },
+    { id: 4, description: 'Test todo 4', done: true },
+    { id: 5, description: 'Test todo 5', done: false },
+  ];
+
+  get totalTodos() {
+    return this.todos.length;
+  }
+
+  get pendingTodos() {
+    return this.todos.reduce((sum, _todo) => (!_todo.done ? sum + 1 : sum), 0);
+  }
+
+  get completedTodos() {
+    return this.todos.reduce((sum, _todo) => (_todo.done ? sum + 1 : sum), 0);
+  }
 
   findAll({ status }: StatusArgs): Todo[] {
     if (status !== undefined) {

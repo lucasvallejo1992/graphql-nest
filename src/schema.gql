@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type AggregationType {
+  total: Int!
+  pending: Int!
+  completed: Int!
+}
+
 type Todo {
   id: Int!
   description: String!
@@ -19,6 +25,7 @@ type Query {
   getRandomNumberFromZeroTo(to: Int!): Int!
   todos(status: Boolean): [Todo!]!
   todo(id: Int!): Todo!
+  aggregations: AggregationType!
 }
 
 type Mutation {
